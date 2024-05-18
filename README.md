@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Chef.in
 
-## Getting Started
+Этот проект предоставляет интерфейс для поиска рецептов и общения с ИИ-помощником, используя API Edamam для рецептов и OpenAI API(GPT3.5) для чата.
 
-First, run the development server:
+Возможности
 
-```bash
+Поиск рецептов: Поиск рецептов по ключевым словам.
+Чат-интерфейс: Общение с помощником по любым вопросам, связанным с рецептами или кулинарией.
+Адаптивный дизайн: Оптимизирован для использования как на настольных компьютерах, так и на мобильных устройствах.
+
+Используемые технологии
+
+React: Библиотека для создания пользовательских интерфейсов.
+Next.js: Фреймворк для React для серверного рендеринга и создания статических веб-сайтов.
+TypeScript: Типизированное надмножество JavaScript, которое добавляет статические типы.
+Tailwind CSS: CSS-фреймворк, основанный на утилитах, для стилизации.
+API Edamam: API для доступа к огромной базе данных рецептов.
+
+
+- [Node.js](https://nodejs.org/en/) 
+- [npm](https://www.npmjs.com/)
+
+Установка
+
+git clone https://github.com/yourusername/chef.in.git
+cd chef.in
+npm install
+
+REACT_APP_API_ID=dc3a6efe
+REACT_APP_API_KEY=f5a24df5188782e061d36bd8cf98af8e
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Настройка для менторов
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Нужно проверить, что все необходимые зависимости установлены и нет ошибок. Так же надо убедиться, что приложение запускается локально без ошибок и доступно по адресу http://localhost:3000.
 
-## Learn More
+Проектирование и разработка веб-сайта Chef.in:
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Выбор технологий: Next.js, TypeScript и Tailwind CSS.
+Настройка окружения разработки и конфигурация Next.js.
+Реализация компонентов интерфейса, включая поиск рецептов и чат.
+Интеграция с API Edamam для получения данных о рецептах.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Компромиссы
+Ограниченное количество рецептов
+Есть ошибки, которые не получилось решать, но которые не влияют на работу сайта
