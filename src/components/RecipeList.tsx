@@ -8,7 +8,7 @@ const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<any>(null); // Изменено здесь
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -24,7 +24,7 @@ const RecipeList = () => {
           }
         });
         setRecipes(response.data.hits);
-      } catch (error:any) {
+      } catch (error: any) { // И здесь
         setError(error);
       } finally {
         setLoading(false);
@@ -34,7 +34,7 @@ const RecipeList = () => {
     fetchRecipes();
   }, [query]);
 
-  const handleSearch = (e:any) => {
+  const handleSearch = (e: any) => {
     e.preventDefault();
     const searchQuery = e.target.elements.search.value.trim();
     if (searchQuery) {
@@ -91,9 +91,9 @@ const RecipeList = () => {
         </button>
       </form>
       {loading && <p className="text-center">Loading...</p>}
-      {(error) && <p className="text-center text-red-500">Error fetching recipes: {error.message}</p>}
+      {error && <p className="text-center text-red-500">Error fetching recipes: {error.message}</p>} {/* Изменено здесь */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {recipes.map((recipe:any, index) => (
+        {recipes.map((recipe: any, index) => (
           <div key={index} className="border p-4 rounded-lg shadow-md hover:shadow-lg">
             <h2 className="text-xl font-semibold">{recipe.recipe.label}</h2>
             <img 
