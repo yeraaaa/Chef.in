@@ -62,7 +62,6 @@ export default function ChatComponent() {
                         placeholder={'Ask something...'}
                         value={input}
                         onChange={handleInputChange}
-                        style={{ color: 'white' }} 
                     />
                     <button className="rounded-md border-2 bg-blue-500 text-white hover:bg-[#1E3A8A] hover:text-black transition-all p-2 mt-2 font-bold">
                         Send

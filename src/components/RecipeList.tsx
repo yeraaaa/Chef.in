@@ -8,7 +8,7 @@ const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<any>(null); // Изменено здесь
+  const [error, setError] = useState<any>(null); 
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -24,7 +24,7 @@ const RecipeList = () => {
           }
         });
         setRecipes(response.data.hits);
-      } catch (error: any) { // И здесь
+      } catch (error: any) { 
         setError(error);
       } finally {
         setLoading(false);
@@ -91,7 +91,7 @@ const RecipeList = () => {
         </button>
       </form>
       {loading && <p className="text-center">Loading...</p>}
-      {error && <p className="text-center text-red-500">Error fetching recipes: {error.message}</p>} {/* Изменено здесь */}
+      {error && <p className="text-center text-red-500">Error fetching recipes: {error.message}</p>}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {recipes.map((recipe: any, index) => (
           <div key={index} className="border p-4 rounded-lg shadow-md hover:shadow-lg">
