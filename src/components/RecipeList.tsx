@@ -8,7 +8,7 @@ const RecipeList = () => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<any>(null); 
+  const [error, setError] = useState<any>(null);
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -18,13 +18,13 @@ const RecipeList = () => {
         const response = await axios.get(`https://api.edamam.com/search`, {
           params: {
             q: query,
-            app_id: "dc3a6efe",
-            app_key: "f5a24df5188782e061d36bd8cf98af8e",
+            app_id: process.env.NEXT_PUBLIC_EDAMAM_APP_ID,
+            app_key: process.env.NEXT_PUBLIC_EDAMAM_APP_KEY,
             to: 6
           }
         });
         setRecipes(response.data.hits);
-      } catch (error: any) { 
+      } catch (error: any) {
         setError(error);
       } finally {
         setLoading(false);
@@ -49,17 +49,17 @@ const RecipeList = () => {
   return (
     <div>
       <header className="flex justify-between items-center mb-4 bg-blue-500 p-6 w-full h-20">
-        <div className="flex items-center space-x-8">
+        <div className="flex items-center space-x-8 space">
           <span className="text-3xl font-bold text-white">Chef.in</span>
           <nav className="flex space-x-4">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="text-lg font-medium px-4 py-2 rounded-lg text-white bg-blue-700 hover:bg-blue-900"
             >
               Recipes
             </Link>
-            <Link 
-              href="/chat" 
+            <Link
+              href="/chat"
               className="text-lg font-medium px-4 py-2 rounded-lg text-white bg-blue-700 hover:bg-blue-900"
             >
               Chat
@@ -68,22 +68,22 @@ const RecipeList = () => {
         </div>
       </header>
       <form onSubmit={handleSearch} className="mb-4 flex justify-center">
-        <input 
-          type="text" 
-          name="search" 
-          placeholder="Search recipes..." 
+        <input
+          type="text"
+          name="search"
+          placeholder="Search recipes..."
           className="border p-2 rounded-lg shadow-md w-1/2"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button 
-          type="submit" 
+        <button
+          type="submit"
           className="bg-blue-500 text-white p-2 rounded-lg ml-2 shadow-md hover:bg-blue-700"
         >
           Search
         </button>
-        <button 
-          type="button" 
+        <button
+          type="button"
           className="bg-red-500 text-white p-2 rounded-lg ml-2 shadow-md hover:bg-red-700"
           onClick={handleClear}
         >
@@ -96,16 +96,16 @@ const RecipeList = () => {
         {recipes.map((recipe: any, index) => (
           <div key={index} className="border p-4 rounded-lg shadow-md hover:shadow-lg">
             <h2 className="text-xl font-semibold">{recipe.recipe.label}</h2>
-            <img 
-              src={recipe.recipe.image} 
-              alt={recipe.recipe.label} 
+            <img
+              src={recipe.recipe.image}
+              alt={recipe.recipe.label}
               className="w-full h-48 object-cover rounded-lg mb-2"
             />
             <p>Calories: {Math.round(recipe.recipe.calories)}</p>
-            <a 
-              href={recipe.recipe.url} 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href={recipe.recipe.url}
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-blue-500 hover:text-blue-700"
             >
               View Recipe
