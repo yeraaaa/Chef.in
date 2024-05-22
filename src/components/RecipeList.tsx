@@ -24,7 +24,7 @@ const RecipeList = () => {
           }
         });
         setRecipes(response.data.hits);
-      } catch (error: any) {
+      } catch (error: any) { 
         setError(error);
       } finally {
         setLoading(false);
